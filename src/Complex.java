@@ -1,9 +1,9 @@
 class Complex {
-    private double x; // Вещественная часть
-    private double y; // Мнимая часть
+    private double x; 
+    private double y; 
 
     public Complex() {
-        this(0, 0); // Вызов перегруженного конструктора
+        this(0, 0); 
     }
 
     public Complex(double x, double y) {
