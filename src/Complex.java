@@ -2,18 +2,15 @@ class Complex {
     private double x; // Вещественная часть
     private double y; // Мнимая часть
 
-    // Конструктор без параметров
     public Complex() {
         this(0, 0); // Вызов перегруженного конструктора
     }
 
-    // Перегруженный конструктор
     public Complex(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    // Геттеры и сеттеры
     public double getX() {
         return x;
     }
@@ -30,7 +27,6 @@ class Complex {
         this.y = y;
     }
 
-    // Метод toString()
     @Override
     public String toString() {
         if (y == 0) {
@@ -42,22 +38,18 @@ class Complex {
         }
     }
 
-    // Метод сложения
     public Complex add(Complex other) {
         return new Complex(this.x + other.x, this.y + other.y);
     }
 
-    // Метод вычитания
     public Complex sub(Complex other) {
         return new Complex(this.x - other.x, this.y - other.y);
     }
 
-    // Метод умножения
     public Complex mul(Complex other) {
         return new Complex(this.x * other.x - this.y * other.y, this.x * other.y + this.y * other.x);
     }
 
-    // Метод деления
     public Complex div(Complex other) {
         double denominator = other.x * other.x + other.y * other.y;
         if (denominator == 0) {
@@ -66,12 +58,10 @@ class Complex {
         return new Complex((this.x * other.x + this.y * other.y) / denominator, (this.y * other.x - this.x * other.y) / denominator);
     }
 
-    // Метод для нахождения модуля
     public double module() {
         return Math.sqrt(x * x + y * y);
     }
 
-    // Метод сравнения
     public boolean equals(Complex other) {
         return this.x == other.x && this.y == other.y;
     }
@@ -93,7 +83,6 @@ class Complex {
         Complex c3 = new Complex(5,3);
         System.out.println("c1 == c3: " + c1.equals(c3)); //true
 
-        //Пример деления на ноль
         Complex c4 = new Complex(0,0);
         try{
             System.out.println("c1/c4: " + c1.div(c4));
