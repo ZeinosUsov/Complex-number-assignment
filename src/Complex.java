@@ -1,9 +1,9 @@
 class Complex {
-    private double x; 
-    private double y; 
+    private double x;
+    private double y;
 
     public Complex() {
-        this(0, 0); 
+        this(0, 0);
     }
 
     public Complex(double x, double y) {
@@ -27,15 +27,8 @@ class Complex {
         this.y = y;
     }
 
-    
     public String toString() {
-        if (y == 0) {
-            return String.valueOf(x);
-        } else if (y > 0) {
-            return x + "+" + y + "i";
-        } else {
-            return x + "" + y + "i";
-        }
+        return x + (y >= 0 ? "+" : "") + y + "i";
     }
 
     public Complex add(Complex other) {
@@ -65,31 +58,31 @@ class Complex {
     public boolean equals(Complex other) {
         return this.x == other.x && this.y == other.y;
     }
-
-
     public static void main(String[] args) {
-        Complex c1 = new Complex(5, 3);
-        Complex c2 = new Complex(2, -1);
+        Complex z1 = new Complex(5, 3);
+        Complex z2 = new Complex(2, -1);
 
-        System.out.println("c1: " + c1); // 5+3i
-        System.out.println("c2: " + c2); // 2-1i
-        System.out.println("c1 + c2: " + c1.add(c2)); // 7+2i
-        System.out.println("c1 - c2: " + c1.sub(c2)); // 3+4i
-        System.out.println("c1 * c2: " + c1.mul(c2)); // 13+1i
-        System.out.println("c1 / c2: " + c1.div(c2)); // 1.0+2.0i
-        System.out.println("|c1|: " + c1.module()); // 5.830951894845301
-        System.out.println("c1 == c2: " + c1.equals(c2)); // false
+        System.out.println("z1 = " + z1);
+        System.out.println("z2 = " + z2);
+        System.out.println("z1 + z2 = " + z1.add(z2));
+        System.out.println("z1 - z2 = " + z1.sub(z2));
+        System.out.println("z1 * z2 = " + z1.mul(z2));
+        System.out.println("z1 / z2 = " + z1.div(z2));
+        System.out.println("|z1| = " + z1.module());
+        System.out.println("z1 equals z2: " + z1.equals(z2));
 
-        Complex c3 = new Complex(5,3);
-        System.out.println("c1 == c3: " + c1.equals(c3)); //true
+        Complex z3 = new Complex(5,3);
+        System.out.println("z1 equals z3: " + z1.equals(z3));
 
-        Complex c4 = new Complex(0,0);
+        Complex z4 = new Complex(0,0);
+        System.out.println("z4 = "+z4);
         try{
-            System.out.println("c1/c4: " + c1.div(c4));
+            System.out.println("z1 / z4 = " + z1.div(z4));
         } catch (ArithmeticException e){
-            System.out.println("Ошибка: " + e.getMessage());
+            System.out.println("Ошибка: "+e.getMessage());
         }
     }
+}
 }
 
 
